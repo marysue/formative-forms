@@ -1,21 +1,8 @@
 extends layout.pug
+
 block content
-  if(errors)
-    p The following errors were found:
-      ul
-        each error in errors
-          li #{error}
+  include includes/form-errors.pug
   h2 Create User
   form(method='post', action='/create')
-    input(type="hidden" name="_csrf" value=csrfToken)
-    label(for='firstName') First Name
-    input(type='text', name='firstName' value=firstName)
-    label(for='lastName') Last Name
-    input(type='text', name='lastName' value = lastName)
-    label(for='email') Email
-    input(type='email', name='email'  value=email)
-    label(for='password') Password
-    input(type='password', name='password')
-    label(for='confirmedPassword') Confirm Password
-    input(type='password', name='confirmedPassword')
+    include includes/create-layout.pug
     input(type="submit" value="Create User")

@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+  include includes/form-errors.pug
+  h2 Create Interesting User
+  form(method='post', action='/create-interesting')
+    include includes/create-layout.pug
+    label(for='age') Age
+    input(type='number', name='age' value=age)
+    label(for='favoriteBeatle') Favorite Beatle
+    //- input(type='text', name='favoriteBeatle' value = favoriteBeatle)
+
+    select(name="favoriteBeatle")
+        option(value="" disabled selected) --Please choose an option--
+        each beatle in beatles
+            if (beatle.name === favoriteBeatle)
+                option(value=beatle.name selected='selected') #{beatle.name}
+            else
+                option(value=beatle.name selected=false) #{beatle.name}
+    label(for='iceCream') Likes Ice Cream
+    input(type='checkbox', name='iceCream' checked=(iceCream === 'on'))
+    input(type="submit" value="Create Interesting User")

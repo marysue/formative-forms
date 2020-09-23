@@ -1,6 +1,6 @@
 extends layout.pug
 block content
-  
+
   h2 Existing Users
   table
     thead
@@ -20,7 +20,8 @@ block content
           td #{user.lastName}
           td #{user.email}
           td #{user.age}
-          td #{user.favoriteBeetle}
-          td #{user.likesIceCream}
-
-
+          td #{user.favoriteBeatle}
+          if (user.iceCream === true)
+            td true
+          else
+            td
